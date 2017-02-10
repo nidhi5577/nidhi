@@ -7,12 +7,14 @@
 table.table.table-striped
   thead
     tr
-      th name
-      th publisher
-      th released
+      th Name
+      th Publisher
+      th Released On
+      th On Sale
   tbody
     - @albums.each do |album|
       tr
         td= link_to album.name, album
         td= album.publisher.name
         td= album.released_on
+        td= album.on_sale ? album.on_sale.titleize : "-"
