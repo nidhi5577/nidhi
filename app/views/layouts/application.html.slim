@@ -49,7 +49,10 @@ html lang="en"
           .col-md-2
             ul
               li LATEST
-              li ~
+              = cache do 
+                - Album.recent(2).each do |album| 
+                  li= link_to album.name, album_path(album.id)                
+              
           .col-md-2
             ul
               li OUR TEAM
