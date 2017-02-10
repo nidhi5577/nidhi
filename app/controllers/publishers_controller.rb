@@ -28,7 +28,8 @@ class PublishersController < ApplicationController
 
   def update
     @publisher.update(publisher_params)
-    respond_with(@publisher)
+    redirect_to @publisher
+    #respond_with(@publisher)
   end
 
   def destroy
