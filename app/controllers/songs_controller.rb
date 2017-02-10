@@ -32,8 +32,8 @@ class SongsController < ApplicationController
   end
 
   def destroy
+    @songs = Song.all
     @song.destroy
-    respond_with(@song)
   end
 
   private
