@@ -7,6 +7,15 @@ Rails.application.routes.draw do
     end
   end
   resources :publishers
+
+  namespace :api do
+    namespace :v1 do
+      resources :albums
+      resources :artists
+      resources :publishers
+      resources :songs
+    end
+  end
   
   root 'publishers#index'
 
