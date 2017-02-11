@@ -4,12 +4,23 @@
       = link_to "New", new_artist_path, class: 'btn btn-primary'
     | Artists
   
-table.table.table-striped
-  thead
-    tr
-      th name
-  tbody
-    - @artists.each do |artist|
-      tr
-        td= link_to artist.name, artist
 
+
+
+
+
+.col-lg-3.col-md-3.p-r-0
+  span.style Name
+
+- @artists.each do |artist| %
+  .stripped-row-list
+    .l-i-f.row
+      a href=artist_path(artist.id)
+        span.hidden-md-up
+            =artist.name 
+        span.hidden-md-up
+        span.hidden-md-up
+          - unless artist.image
+            = image_tag 'user_image_placeholder.png'
+          - else
+            img src=artist.image

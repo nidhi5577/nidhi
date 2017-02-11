@@ -1,3 +1,6 @@
+require "net/http"
+require "uri"
+require "json"
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +13,13 @@ class ArtistsController < ApplicationController
 
   def show
     respond_with(@artist)
+    unless @artist.image
+      uri = URI.parse("https://randomuser.me/api")
+      response = Net::HTTP.get_response(uri)
+      data = JSON.parse(response.body)
+      image_url = data['results'].first['picture']['medium']
+      @artist.update_attributes(image: image_url)
+    end
   end
 
   def new
@@ -42,6 +52,6 @@ class ArtistsController < ApplicationController
     end
 
     def artist_params
-      params.require(:artist).permit(:name)
+      params.require(:artist).permit(:name, :image)
     end
 end

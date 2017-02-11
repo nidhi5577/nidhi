@@ -41,3 +41,79 @@
  .header-bg {
     background-color: #9B59B6;
  }
+
+ .l-i-f {
+   background: $body-bg;
+   color: $body-color;
+   padding: 0;
+   margin: 20px 0;
+   padding-top: 20px;
+   cursor: default;
+   div {
+      word-break: break-word;
+   }
+
+   &:hover {
+      color: $body-color;
+      text-decoration: none;
+   }
+
+   &:nth-child(even) {
+      background: #f9f9f9;
+
+   }
+   b{
+      color:$brand-blue-title;
+   }
+   .media-body{
+      margin-left:10px;
+      h6{
+         margin: 0;
+      }
+   }
+   .media{
+      margin:0;
+      padding:0;
+   }
+   address {
+       line-height: normal;
+   }
+}
+a.l-i-f {
+   &:hover {
+      background: #f0f0f0;
+      cursor: pointer;
+   }
+   &:nth-child(even) {
+      &:hover {
+         background: #f0f0f0;
+      }
+   }
+}
+div.l-i-f {
+   &:hover {
+      background:#fff;
+      cursor: default;
+   }
+   &:nth-child(even) {
+      &:hover {
+         background:#fff;
+      }
+   }
+}
+
+.stripped-row-list:nth-child(even) { 
+   .l-i-f {
+      background: #f9f9f9;
+   }
+}
+
+.style{
+  font-size:14px;font-weight:bold;
+}
+
+.hidden-md-up {
+  display: block;
+}
+
+
